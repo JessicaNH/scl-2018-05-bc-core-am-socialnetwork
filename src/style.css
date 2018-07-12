@@ -1,4 +1,11 @@
+#NombreAppi{
+  text-align: center;
+  padding: 6%;
+}
 #NombreApp{
   text-align: center;
   padding: 6%;
+}
+.btn{
+  text-align: center;
 }
