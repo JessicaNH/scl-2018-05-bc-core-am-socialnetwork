@@ -1,9 +1,30 @@
 
 
-  function logInOrRegister(){
+function logInOrRegister( ){
+  if ($("#email").val() == "") {
+    alert("ingresa el email!!!");
+    return;
+  }
+
+  if ($("#password").val() == "") {
+    alert("ingresa la password!!!");
+    return;
+  }
+
+  authenticate();
+}
+
+
+
+
+
+
+
+function authenticate(){
     console.log("cualquier cosa");
     const emailValue = email.value;
     const passwordValue = password.value; 
+  
     firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
       .then(()=>{
           console.log("Usuario registrado");
@@ -11,7 +32,7 @@
       .catch((error)=>{
           console.log("Error de firebase > "+error.code);
           console.log("Error de firebase, mensaje > "+error.message);
-      });
+      });      
   }
 
 
