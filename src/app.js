@@ -1,9 +1,10 @@
-window.onload = ()=>{
 
-  function register(){
-  const emailValue = email.value;
-  const passwordValue = password.value; 
-  firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
+
+  function logInOrRegister(){
+    console.log("cualquier cosa");
+    const emailValue = email.value;
+    const passwordValue = password.value; 
+    firebase.auth().createUserWithEmailAndPassword(emailValue, passwordValue)
       .then(()=>{
           console.log("Usuario registrado");
       })
@@ -11,17 +12,25 @@ window.onload = ()=>{
           console.log("Error de firebase > "+error.code);
           console.log("Error de firebase, mensaje > "+error.message);
       });
-}
+  }
 
 
-var provider = new firebase.auth.GoogleAuthProvider();
-var provider = new firebase.auth.FacebookAuthProvider();
+
+var providerGoogle = new firebase.auth.GoogleAuthProvider();
+var providerFacebook = new firebase.auth.FacebookAuthProvider();
 
 $('#logingoogle').click(function(){
   firebase.auth()
-  .signInWithPopup(provider)
+  .signInWithPopup(providerGoogle)
   .then(function(result){
     console.log(result.user);
   });
 });
-}
+
+$('#loginfacebook').click(function(){
+  firebase.auth()
+  .signInWithPopup(providerFacebook)
+  .then(function(result){
+    console.log(result.user);
+  });
+});
