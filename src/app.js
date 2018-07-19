@@ -1,5 +1,5 @@
 
-
+//validacion datos de Usuario
 function logInOrRegister( ){
   if ($("#email").val() == "") {
     alert("ingresa el email!!!");
@@ -14,7 +14,7 @@ function logInOrRegister( ){
   authenticate();
 }
 
-
+//authenticacion de mail y password
 function authenticate(){
     console.log("cualquier cosa");
     const emailValue = email.value;
@@ -31,7 +31,7 @@ function authenticate(){
   }
 
 
-
+//authenticacion con google y facebook
 var providerGoogle = new firebase.auth.GoogleAuthProvider();
 var providerFacebook = new firebase.auth.FacebookAuthProvider();
 
