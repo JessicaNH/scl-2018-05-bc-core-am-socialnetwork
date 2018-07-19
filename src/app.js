@@ -54,5 +54,26 @@ $('#loginfacebook').click(function(){
   });
 });
 
-//data base
+//database firebase
+// Usaremos una colección para guardar los mensajes, llamada messages
+function sendMessage(){
+  const currentUser = firebase.auth().currentUser;
+  const messageAreaText = messageArea.value;
+
+  //Para tener una nueva llave en la colección messages
+  const newMessageKey = firebase.database().ref().child('messages').push().key;
+
+  firebase.database().ref(`messages/${newMessageKey}`).set({
+      creator : currentUser.uid,
+      //aqui iria un receptor...a quien le quiero enviar el mensaje
+      creatorName : currentUser.displayName,
+      text : messageAreaText
+  }).then(()=>{
+    console.log("Mensaje se guardò")
+  }).catch(
+    (error)=>{
+      console.error("Error al guardar mensaje", error)
+    }
+  );
+}
 
