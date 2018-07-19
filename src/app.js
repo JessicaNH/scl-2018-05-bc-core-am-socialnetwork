@@ -53,3 +53,6 @@ $('#loginfacebook').click(function(){
     console.log(result.user);
   });
 });
+
+//data base
+
