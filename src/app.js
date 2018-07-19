@@ -44,6 +44,9 @@ $('#logingoogle').click(function(){
 });
 
 $('#loginfacebook').click(function(){
+  providerFacebook.setCustomParameters({
+    'display': 'popup'
+  });
   firebase.auth()
   .signInWithPopup(providerFacebook)
   .then(function(result){
