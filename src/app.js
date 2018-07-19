@@ -15,11 +15,6 @@ function logInOrRegister( ){
 }
 
 
-
-
-
-
-
 function authenticate(){
     console.log("cualquier cosa");
     const emailValue = email.value;
